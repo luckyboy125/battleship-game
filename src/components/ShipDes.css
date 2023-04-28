@@ -1,0 +1,23 @@
+.shipDes {
+  width: fit-content;
+}
+
+.shipDes .item {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.shipDes .item img {
+  width: 100px;
+}
+
+.shipDes .item .size {
+  margin-left: 20px;
+  display: flex;
+}
+
+.shipDes .item .size img {
+  width: 20px;
+  height: 20px;
+}
