@@ -1,11 +1,23 @@
-import Hit from '../../../assets/Hit.png';
-import Miss from '../../../assets/Miss.png';
+import Hit from '../../../assets/Hit small.png';
+import Miss from '../../../assets/Miss small.png';
 import './GameBoardCell.css';
 
-const GameBoardCell = () => {
+interface GameBoardCellProps {
+  x: number;
+  y: number;
+  shipPosition: ShipPosition[];
+}
+
+const GameBoardCell = ({ x, y, shipPosition }: GameBoardCellProps) => {
   return (
     <div className='gameBoardCell'>
-      <img src={Hit} alt='fire-status' />
+      {shipPosition.some(
+        (subarray) => JSON.stringify(subarray) === JSON.stringify([x, y])
+      ) ? (
+        <img src={Hit} alt='fire-status' />
+      ) : (
+        <img src={Miss} alt='fire-status' />
+      )}
     </div>
   );
 };

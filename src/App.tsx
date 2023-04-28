@@ -1,8 +1,7 @@
 import React from 'react';
 import GameBoard from './components/GameBoard';
-import { shipImgTypes } from './config/const';
-import './App.css';
 import ShipDes from './components/ShipDes';
+import './App.css';
 
 function App() {
   const mockData = {
@@ -62,7 +61,7 @@ function App() {
   return (
     <div className='App'>
       <ShipDes shipData={mockData.shipTypes} />
-      <GameBoard />
+      <GameBoard shipData={mockData.layout} />
     </div>
   );
 }

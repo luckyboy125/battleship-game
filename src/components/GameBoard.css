@@ -1,6 +1,11 @@
 .gameBoard {
   flex-grow: 1;
   margin-left: 50px;
+  border: 2px solid #e8ba10;
+}
+
+.gameBoard :last-child.gameBoardRow {
+  border-bottom: 1px solid transparent;
 }
 
 @media (max-width: 600px) {

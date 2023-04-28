@@ -6,13 +6,13 @@ declare interface ShipType {
   destroyer: { size: number; count: number };
 }
 
-declare interface Position {
+declare interface ShipPosition {
   [number, number];
 }
 
-declare interface ShipPosition {
+declare interface ShipPositionData {
   ship: string;
-  positions: Position[];
+  positions: ShipPosition[];
 }
 
 declare interface ShipDataType {
