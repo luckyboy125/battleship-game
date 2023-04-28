@@ -8,13 +8,15 @@ interface GameBoardProps {
 
 const GameBoard = ({ shipData }: GameBoardProps) => {
   const [allShipPosition, setAllShipPosition] = useState<ShipPosition[]>();
+
   useEffect(() => {
     let _allShipPositions: ShipPosition[] = [];
     Object.entries(shipData).map((ship) => {
       _allShipPositions = [..._allShipPositions, ...ship[1].positions];
     });
     setAllShipPosition(_allShipPositions);
-  }, [shipData.length]);
+  }, [shipData]);
+
   return (
     <div className='gameBoard'>
       {Array.from(Array(10).keys()).map((_, key) => {

@@ -1,4 +1,3 @@
-import React from 'react';
 import GameBoard from './components/GameBoard';
 import ShipDes from './components/ShipDes';
 import './App.css';
