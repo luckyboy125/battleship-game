@@ -1,6 +1,14 @@
 .App {
   padding: 50px;
   display: flex;
+  position: relative;
+}
+
+.congrateImg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 @media (max-width: 600px) {

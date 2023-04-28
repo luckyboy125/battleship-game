@@ -1,9 +1,13 @@
+import { useState } from 'react';
 import GameBoard from './components/GameBoard';
 import ShipDes from './components/ShipDes';
+import { getAllshipsPosition } from './utils/utils';
+import { ShipsPositionContext } from './hooks/ShipsPositionContext';
+import CongrateImg from './assets/congrate.gif';
 import './App.css';
 
 function App() {
-  const mockData = {
+  const staticData = {
     shipTypes: {
       carrier: { size: 5, count: 1 },
       battleship: { size: 4, count: 1 },
@@ -57,11 +61,26 @@ function App() {
     ],
   };
 
+  const [hitCount, setHitCount] = useState(0);
+
+  const contextValue: PlayStatus = {
+    hitCount: hitCount,
+    positions: getAllshipsPosition(staticData.layout),
+    setHitCount: setHitCount,
+  };
+
   return (
-    <div className='App'>
-      <ShipDes shipData={mockData.shipTypes} />
-      <GameBoard shipData={mockData.layout} />
-    </div>
+    <ShipsPositionContext.Provider value={contextValue}>
+      <div className='App'>
+        <ShipDes shipData={staticData.shipTypes} />
+        <GameBoard />
+        {hitCount === getAllshipsPosition(staticData.layout).length ? (
+          <img src={CongrateImg} className='congrateImg' alt='congrateImg' />
+        ) : (
+          <></>
+        )}
+      </div>
+    </ShipsPositionContext.Provider>
   );
 }
 

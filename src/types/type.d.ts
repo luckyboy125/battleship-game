@@ -5,9 +5,14 @@ declare interface ShipType {
   submarine: { size: number; count: number };
   destroyer: { size: number; count: number };
 }
-
 declare interface ShipPosition {
   [number, number];
+}
+
+declare interface PlayStatus {
+  hitCount: number;
+  positions: ShipPosition[];
+  setHitCount: React.Dispatch<React.SetStateAction<number>>;
 }
 
 declare interface ShipPositionData {
