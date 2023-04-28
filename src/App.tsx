@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import GameBoard from './components/GameBoard';
 import ShipDes from './components/ShipDes';
 import { getAllshipsPosition } from './utils/utils';
@@ -62,6 +62,18 @@ function App() {
   };
 
   const [hitCount, setHitCount] = useState(0);
+  const [completeStatus, setCompleteStatus] = useState(false);
+
+  useEffect(() => {
+    if (hitCount === getAllshipsPosition(staticData.layout).length) {
+      setCompleteStatus(true);
+      const timeoutId = setTimeout(() => {
+        setCompleteStatus(false);
+      }, 5000);
+
+      return () => clearTimeout(timeoutId);
+    }
+  }, [hitCount]);
 
   const contextValue: PlayStatus = {
     hitCount: hitCount,
@@ -74,7 +86,7 @@ function App() {
       <div className='App'>
         <ShipDes shipData={staticData.shipTypes} />
         <GameBoard />
-        {hitCount === getAllshipsPosition(staticData.layout).length ? (
+        {completeStatus ? (
           <img src={CongrateImg} className='congrateImg' alt='congrateImg' />
         ) : (
           <></>

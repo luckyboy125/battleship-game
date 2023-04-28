@@ -1,5 +1,5 @@
 import SmallHit from '../assets/Hit small.png';
-import { shipImgTypes } from '../config/const';
+import { shipImgTypes } from '../config/ShipImages';
 import './ShipDes.css';
 
 interface ShipDesProp {
