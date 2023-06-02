@@ -25,9 +25,9 @@ const GameBoardCell = ({ x, y }: GameBoardCellProps) => {
       {!initialState ? (
         <></>
       ) : positionValidCheck(positions, x, y) ? (
-        <img src={Hit} alt='fire-status' />
+        <img src={Hit} alt='fire-status-image' />
       ) : (
-        <img src={Miss} alt='fire-status' />
+        <img src={Miss} alt='fire-status-image' />
       )}
     </div>
   );
