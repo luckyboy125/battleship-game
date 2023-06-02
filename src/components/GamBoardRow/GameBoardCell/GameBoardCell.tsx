@@ -19,7 +19,6 @@ const GameBoardCell = ({ x, y }: GameBoardCellProps) => {
     positionValidCheck(positions, x, y) && setHitCount(hitCount + 1);
     setInitialState(true);
   };
-  console.log('hitcount: ', hitCount);
 
   return (
     <div className='gameBoardCell' onClick={() => handleCellClick()}>
