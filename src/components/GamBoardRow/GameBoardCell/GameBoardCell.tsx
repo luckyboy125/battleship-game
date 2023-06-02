@@ -14,7 +14,7 @@ const GameBoardCell = ({ x, y }: GameBoardCellProps) => {
   const { hitCount, positions, setHitCount } = useContext(ShipsPositionContext);
 
   const [initialState, setInitialState] = useState(false);
-
+  const new1 = 0;
   const handleCellClick = () => {
     positionValidCheck(positions, x, y) && setHitCount(hitCount + 1);
     setInitialState(true);
